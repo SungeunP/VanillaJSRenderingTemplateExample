@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Rendering template example </title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/index.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous"></script>
+  <script src="./js/HandlebarsHelpers.js"></script>
+
+  <!-- Page template -->
+  <script id="Page" type="template">
+    <div id="Page_{{pageName}}" class="page">
+      <div class="page-head">
+        
+      </div>
+      <div class="page-content">
+
+      </div>
+    </div>
+  </script>
+
+  <!-- Navigation bar template -->
+  <script id="NavBar" type="template">
+    <div class="nav-bar">
+      <div>
+        {{#switch templateName}}
+          {{#case "Detail"}}<button id="BackToMainBtn" class="back-btn"> 뒤로가기 </button>{{/case}}
+        {{/switch}}
+      </div>
+      <div>
+        {{#switch templateName}}
+          {{#case "Main"}} 메인 {{/case}}
+          {{#case "Detail"}} 상세 정보 {{/case}}
+        {{/switch}}
+      </div>
+      <div>
+        {{#switch templateName}}
+          {{#case "Main"}} 설정 {{/case}}
+          {{#case "Detail"}} 수정 {{/case}}
+        {{/switch}}
+      </div>
+    </div>
+  </script>
+
+  <!-- Page contents -->
+  <script id="PageContent_Main" type="template">
+    <div>
+      <h1> Main page </h1>
+      <button id="MoveToDetailBtn"> Move to detail page </button>
+    </div>
+  </script>
+  <script id="PageContent_Detail" type="template">
+    <div>
+      <h1> Detail page </h1>
+    </div>
+  </script>
+
+</head>
+<body>
+  <div id="App">
+    <h3> Loading .. </h3>
+  </div>
+</body>
+
+<script src="js/common.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/Render.js"></script>
+<script src="js/index.js" type="text/javascript"></script>
+
+</html>
